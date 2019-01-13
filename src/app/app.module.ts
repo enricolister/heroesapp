@@ -1,4 +1,3 @@
-import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 
 import { APP_ROUTING } from './app.routes';
