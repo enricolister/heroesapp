@@ -1,3 +1,6 @@
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
+
 import { APP_ROUTING } from './app.routes';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -5,6 +8,10 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './components/heroes/heroes.component';
 import { HeroeComponent } from './components/heroes/heroe.component';
+
+// Servicios
+import { HeroesService } from './services/heroes.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,9 +21,13 @@ import { HeroeComponent } from './components/heroes/heroe.component';
   ],
   imports: [
     BrowserModule,
-    APP_ROUTING
+    FormsModule,
+    APP_ROUTING,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    HeroesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
