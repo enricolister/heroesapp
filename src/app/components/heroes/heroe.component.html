@@ -1,5 +1,6 @@
-<h3>Héroe <small>nombre</small></h3>
-<button [routerLink]="['/heroes']" type="button" class="btn btn-outline-danger">Regresar</button>
+<h3>Héroe <small>informaciones</small></h3>
+<button [routerLink]="['/heroes']" type="button" class="btn btn-outline-danger mr-2">Regresar</button>
+<button *ngIf="!nuevo" (click)="agregarNuevo(forma)" type="button" class="btn btn-outline-success">Nuevo Héroe</button>
 <hr>
 
 <div class="row animated fadeIn">
