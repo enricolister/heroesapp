@@ -50,4 +50,12 @@ export class HeroesService {
       })
     )
   }
+
+  getHeroes() {
+    return this.http.get(this.firebaseURL).pipe(
+      map( (res) => {
+        return res;
+      })
+    )
+  }
 }
