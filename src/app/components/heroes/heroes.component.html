@@ -19,7 +19,7 @@
             <th scope="col">Nombre</th>
             <th scope="col">Casa</th>
             <th scope="col">Bio</th>
-            <th scope="col">Opciones</th>
+            <th class="text-right" scope="col">Opciones</th>
           </tr>
         </thead>
         <tbody>
@@ -28,7 +28,10 @@
             <td>{{ heroes[key].nombre }}</td>
             <td>{{ heroes[key].casa }}</td>
             <td>{{ heroes[key].bio }}</td>
-            <td></td>
+            <td class="text-right">
+              <button [routerLink]="['/heroe', key]" class="btn btn-outline-success mr-2" type="button" name="button">Editar</button>
+              <button (click)="borrarHeroe(key)" class="btn btn-outline-danger" type="button" name="button">Borrar</button>
+            </td>
           </tr>
         </tbody>
       </table>

@@ -13,9 +13,9 @@ export class HeroesComponent implements OnInit {
   constructor(private _heroesService: HeroesService) { 
     this._heroesService.getHeroes()
       .subscribe( (heroes : any) => {
-        console.log(heroes);
+        //console.log(heroes);
         for ( let key$ in heroes) {
-            console.log(heroes[key$]);
+            //console.log(heroes[key$]);
 
             this.heroes = heroes;
 
@@ -30,6 +30,20 @@ export class HeroesComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  borrarHeroe(key$: string) {
+    this._heroesService.borrarHeroe(key$)
+    .subscribe(respuesta => {
+      if (respuesta) {
+        console.error(respuesta);
+      } else {
+        //todo bien, eliminar el elemento de la vista
+        delete this.heroes[key$];
+
+      }
+      
+    })
   }
 
 }

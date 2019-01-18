@@ -25,7 +25,7 @@ export class HeroeComponent implements OnInit {
               private activatedRoute: ActivatedRoute) {
 
                 this.activatedRoute.params.subscribe( params => {
-                  console.log(params);
+                  //console.log(params);
                   this.id = params.id;
                   if (this.id !== 'nuevo') {
                     this._heroesService.getHeroe(this.id)
@@ -45,14 +45,14 @@ export class HeroeComponent implements OnInit {
     if (this.id === "nuevo") {
       this._heroesService.nuevoHeroe(this.heroe)
         .subscribe( (data: any) => {
-      console.log(data);
+      //console.log(data);
       this.router.navigate(['/heroe', data.name]);
       },
       error => console.error(error));
     } else {
       this._heroesService.actualizarHeroe(this.heroe, this.id)
       .subscribe( (data: any) => {
-      console.log(data);
+      //console.log(data);
       },
       error => console.error(error));
     }
