@@ -1,4 +1,4 @@
-<h3>Héroe <small>informaciones</small></h3>
+<h3>Héroe <small>{{ heroe.nombre }}</small></h3>
 <button [routerLink]="['/heroes']" type="button" class="btn btn-outline-danger mr-2">Regresar</button>
 <button *ngIf="!nuevo" (click)="agregarNuevo(forma)" type="button" class="btn btn-outline-success">Nuevo Héroe</button>
 <hr>

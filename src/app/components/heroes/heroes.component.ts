@@ -9,15 +9,19 @@ import { Component, OnInit } from '@angular/core';
 export class HeroesComponent implements OnInit {
 
   heroes: any[] = [];
+  loading: boolean = true;
 
   constructor(private _heroesService: HeroesService) { 
     this._heroesService.getHeroes()
       .subscribe( (heroes : any) => {
-        //console.log(heroes);
         for ( let key$ in heroes) {
-            //console.log(heroes[key$]);
 
-            this.heroes = heroes;
+            
+
+            setTimeout( () => {
+              this.heroes = heroes;
+              this.loading = false;
+            }, 1000);
 
             /* if (heroes[key$] !== null) {
               let h = heroes[key$];
@@ -25,7 +29,6 @@ export class HeroesComponent implements OnInit {
               this.heroes.push( heroes[key$]);
             } */
         }
-        //console.log('This are the heroes: ' + this.heroes);
       })
   }
 
@@ -38,7 +41,6 @@ export class HeroesComponent implements OnInit {
       if (respuesta) {
         console.error(respuesta);
       } else {
-        //todo bien, eliminar el elemento de la vista
         delete this.heroes[key$];
 
       }
